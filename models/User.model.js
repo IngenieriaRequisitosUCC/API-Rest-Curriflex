@@ -51,8 +51,9 @@ const userSchema = new Schema({
         language: String, 
         rating: Number,
     }],
+    theme: String,
 });
 
 const UserModel = model('User', userSchema);
 
-export default UserModel;
+export {UserModel};

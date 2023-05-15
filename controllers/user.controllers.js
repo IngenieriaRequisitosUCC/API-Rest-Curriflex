@@ -95,8 +95,50 @@ const signUp = async(req, res) =>{
     }
 };
 
-const update = (req, res) =>{
-    return res.json({"msg": "Update"});
+
+/**
+ * The function updates user data except for the email field and returns the updated data or an error
+ * message.
+ * @param req - req is an object that represents the HTTP request made by the client. It contains
+ * information such as the request method, headers, URL, and request body.
+ * @param res - The `res` parameter is the response object that is sent back to the client by the
+ * server. It contains information such as the status code, headers, and data that is being sent back
+ * to the client.
+ * @returns The function `update` returns a JSON response with the updated data if the update is
+ * successful, or an error message with a corresponding status code if there is an error. If the
+ * request body contains an email field, the function throws an error with a status code of 400 and a
+ * message "Cannot update email". If the update operation fails for any other reason, the function
+ * returns a JSON response with
+ */
+const update = async(req, res) =>{
+    try{
+        if('email' in req.body) throw new Error("Cannot update email");
+
+        const newData = {};
+        for (const key in req.body) {
+            if (req.body[key]) {
+                newData[key] = req.body[key];
+            }
+        }
+
+        const updatedUser = await User.findOneAndUpdate(res.locals.data._id, newData,{
+            new:true
+        }).catch(e => {
+            throw new Error(e);
+        });
+
+        return res.status(200).json({
+            "new-data": newData 
+        });
+    }catch(e){  
+        if(e.message == "Cannot update email") {
+            return res.status(400).json({"msg": "Cannot update email"});
+        }
+
+        return res.status(404).json({
+            "msg": "Not Found"
+        });
+    }
 };
 
 export {get, signIn, signUp, update};

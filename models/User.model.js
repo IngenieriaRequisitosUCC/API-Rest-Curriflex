@@ -51,7 +51,10 @@ const userSchema = new Schema({
         language: String, 
         rating: Number,
     }],
-    theme: String,
+    theme: {
+        type: String,
+        default: "default",
+    },
 });
 
 const UserModel = model('User', userSchema);

@@ -34,8 +34,38 @@ const get = async (req, res) =>{
     }
 };
 
-const signIn = (req, res) =>{
-    return res.json({"msg": "signIn"});
+/**
+ * This function handles user sign-in by checking the email and password, generating a token, and
+ * returning it in a JSON response.
+ * @param req - req stands for request and it is an object that contains information about the incoming
+ * HTTP request such as the request headers, request parameters, request body, etc.
+ * @param res - `res` is the response object that is sent back to the client after processing the
+ * request. It contains information such as the status code, headers, and response body. In this case,
+ * the `res` object is used to send a JSON response containing a token if the user is successfully
+ * authenticated,
+ * @returns a JSON response with a status code of 200 and a token if the user is found and the password
+ * matches. If there is an error, it returns a JSON response with an appropriate error message and
+ * status code.
+ */
+const signIn = async (req, res) =>{
+    try{
+        const {email, password} = req.body;
+        const user = await User.findOne({email});
+
+        if(!user) throw new Error(404);
+        if(password != user.password) throw new Error(400);
+
+        const _id = user._id;
+        const token = tokenGen({_id});
+        return res.status(200).json({token});
+    }catch({message}){
+        console.log(message);
+        message = parseInt(message);             
+        const msg = message == 404 ? "Not Found" : "Wrong email or password";
+        return res.status(message).json({
+            msg
+        });
+    }
 };
 
 /**

@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "37cd6cd4-9cb8-4c58-9654-bb5d62560ca3",
+		"name": "Curriflex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15269557"
+	},
+	"item": [
+		{
+			"name": "get User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDYxODlhZTBlMTBlOWE3ZjgwMmU3NDkiLCJpYXQiOjE2ODQxMTM4MzgsImV4cCI6MTY4NDIwMDIzOH0.XJlEXsuA7IFddo-2VUuUh1nNkRYQqo0QTClW41287uA",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "randomkey",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Full Format Sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"root@mail.com\",\r\n    \"password\": \"root\",\r\n    \"name\": \"root\",\r\n    \"job\": \"job\",\r\n    \"profile\": \"Description\",\r\n    \"contact\": {\r\n        \"phone\": \"String\",\r\n        \"web\": \"String\"\r\n    }, \r\n    \"education\": [{\r\n        \"degree\": \"String\",\r\n        \"start\": \"03-03-2000\", \r\n        \"location\": \"String\", \r\n        \"college\": \"String\", \r\n        \"description\": \"String\"\r\n    }], \r\n    \"experience\": [{\r\n        \"job\": \"String\",\r\n        \"start\": \"03-03-2000\",\r\n        \"location\": \"String\", \r\n        \"company\": \"String\", \r\n        \"description\": \"String\"\r\n    }],\r\n    \"skills\": [{\r\n        \"skill\": \"String\", \r\n        \"rating\": 1\r\n    }], \r\n    \"languages\": [{\r\n        \"language\": \"String\", \r\n        \"rating\": 1\r\n    }], \r\n    \"theme\": \"String\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incomplete Format Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"root\",\r\n    \"name\": \"root\",\r\n    \"job\": \"job\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Min Format Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"root@mail.com\",\r\n    \"password\": \"root\",\r\n    \"name\": \"Root\",\r\n    \"job\": \"Cargo actual\",\r\n    \"profile\": \"Descripcion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"root@mail.com\",\r\n    \"password\": \"root\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/user/signIn",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDYxODlhZTBlMTBlOWE3ZjgwMmU3NDkiLCJpYXQiOjE2ODQxODIzNjcsImV4cCI6MTY4NDI2ODc2N30.ZO8kjpDeET21akKlvEdrzirKkSgsrzkmJorBLOn6Qug",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "randomkey",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Root\",\r\n    \"job\": \"Cargo actual\",\r\n    \"profile\": \"descripcion actualizada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/user/update",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

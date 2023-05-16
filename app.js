@@ -1,5 +1,5 @@
-import {PORT, app} from "./config/server.js";
-import {router as userRouter} from "./routes/user.routes.js";
+const {PORT, app} = require("./config/server.js");
+const {router: userRouter} = require("./routes/user.routes.js");
 
 app.use('/user', userRouter);
 

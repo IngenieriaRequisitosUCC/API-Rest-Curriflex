@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
+const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
 
 dotenv.config("../");
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -35,4 +35,7 @@ const tokenValidator = (token) => {
     }
 };
 
-export {tokenGen, tokenValidator};
+module.exports =  {
+    tokenGen, 
+    tokenValidator
+};

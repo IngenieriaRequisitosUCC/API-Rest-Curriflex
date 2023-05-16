@@ -1,6 +1,6 @@
-import * as userControllers from '../controllers/user.controllers.js';
-import * as express from 'express';
-import {isLogged} from '../middleware/isLogged.js';
+const userControllers = require('../controllers/user.controllers.js');
+const express = require('express');
+const {isLogged} = require('../middleware/isLogged.js');
 
 const router = express.Router();
 
@@ -11,4 +11,6 @@ router.use(isLogged);
 router.get('/', userControllers.get);
 router.put('/update', userControllers.update);
 
-export {router};
+module.exports = {
+    router
+};

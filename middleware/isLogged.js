@@ -1,4 +1,4 @@
-import { tokenValidator} from "../utils/token.js";
+const { tokenValidator } = require("../utils/token.js");
 
 const isLogged = (req, res, next) => {
     try{
@@ -14,4 +14,4 @@ const isLogged = (req, res, next) => {
     }
 };
 
-export {isLogged};
+module.exports = { isLogged };

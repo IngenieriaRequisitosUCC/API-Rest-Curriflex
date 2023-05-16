@@ -1,5 +1,5 @@
-import {UserModel as User} from '../models/User.model.js';
-import {tokenGen} from "../utils/token.js";
+const {UserModel: User} = require('../models/User.model.js');
+const {tokenGen} = require("../utils/token.js");
 
 /**
  * The function retrieves user data based on their ID and returns it as a JSON object.
@@ -141,4 +141,9 @@ const update = async(req, res) =>{
     }
 };
 
-export {get, signIn, signUp, update};
+module.exports = {
+    get, 
+    signIn, 
+    signUp, 
+    update
+};

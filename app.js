@@ -1,5 +1,8 @@
-import {PORT, app} from "./config/server.js";
-import { validateEmail, validatePassword } from "./utils/utils.js";
+const {PORT, app} = require("./config/server.js");
+const {router: userRouter} = require("./routes/user.routes.js");
+const { validateEmail, validatePassword } = require("./utils/utils.js");
+
+app.use('/user', userRouter);
 
 app.listen(PORT, ()=>{
     console.log(`Servidor en el puerto: ${PORT}`);

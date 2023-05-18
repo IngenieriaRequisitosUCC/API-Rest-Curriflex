@@ -18,4 +18,4 @@ function validatePassword(password){
     return false;
 } 
 
-export {validatePassword, validateEmail}
+module.exports = {validatePassword, validateEmail}
